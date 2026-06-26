@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreo de Despachos - Mi CMS</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7f6; padding: 40px; text-align: center; }
+        .container { max-width: 500px; background: white; padding: 30px; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input[type="text"] { width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #007bff; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background: #0056b3; }
+        .resultado { margin-top: 20px; padding: 15px; border-left: 5px solid #28a745; background: #e8f5e9; text-align: left; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Seguimiento de Tu Producto</h2>
+    <p>Introduce tu ID de Pedido para verificar el estado de despacho.</p>
+    <input type="text" id="pedidoId" placeholder="Ej: PED-1024">
+    <button onclick="buscarPedido()">Consultar Estado</button>
+
+    <div id="resultado" class="resultado">
+        <h3>📦 Datos del Despacho</h3>
+        <p><strong>Cliente:</strong> <span id="resCliente"></span></p>
+        <p><strong>Producto:</strong> <span id="resProducto"></span></p>
+        <p><strong>Estado:</strong> <span id="resEstado" style="font-weight: bold; color: #28a745;"></span></p>
+        <p><strong>Nº Guía:</strong> <span id="resGuia"></span></p>
+    </div>
+</div>
+
+<script>
+    // Lógica para conectar con la base de datos (Backend simulado)
+    async function buscarPedido() {
+        const id = document.getElementById('pedidoId').value;
+        if(!id) return alert('Por favor, ingresa un ID');
+
+        // Aquí harás la llamada a tu base de datos API externa
+        // Por ahora, simulamos una respuesta exitosa:
+        document.getElementById('resultado').style.display = 'block';
+        document.getElementById('resCliente').innerText = "Juan Pérez";
+        document.getElementById('resProducto').innerText = "Caja de Suministros B2B";
+        document.getElementById('resEstado').innerText = "DESPACHADO (En camino)";
+        document.getElementById('resGuia').innerText = "TRK-9876543210";
+    }
+</script>
+</body>
+</html>
