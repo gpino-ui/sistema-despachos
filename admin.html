@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Control - Administrar Despachos</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #2c3e50; color: white; padding: 40px; }
+        .panel { max-width: 600px; background: #34495e; padding: 30px; margin: 0 auto; border-radius: 8px; }
+        label { display: block; margin-top: 10px; color: #bdc3c7; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border-radius: 4px; border: none; box-sizing: border-box;}
+        .btn-guardar { background: #2ecc71; color: white; font-weight: bold; margin-top: 20px; padding: 12px; cursor: pointer; border: none; width: 100%; border-radius: 4px;}
+        .btn-guardar:hover { background: #27ae60; }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h2>Panel CMS: Registrar Nuevo Despacho</h2>
+    <form id="formCarga">
+        <label>ID Pedido / Código Único:</label>
+        <input type="text" id="adminId" placeholder="PED-1024" required>
+
+        <label>Nombre del Cliente o Proveedor:</label>
+        <input type="text" id="adminCliente" required>
+
+        <label>Correo Electrónico:</label>
+        <input type="email" id="adminCorreo" required>
+
+        <label>Producto:</label>
+        <input type="text" id="adminProducto" required>
+
+        <label>Estado del Despacho:</label>
+        <select id="adminEstado">
+            <option value="Preparando">En Almacén / Preparando</option>
+            <option value="Despachado">Despachado / En Ruta</option>
+            <option value="Entregado">Entregado Exitosamente</option>
+        </select>
+
+        <label>Número de Guía (Tracking):</label>
+        <input type="text" id="adminGuia" placeholder="Ej: DHL-12345">
+
+        <button type="button" class="btn-guardar" onclick="guardarEnBaseDeDatos()">Registrar y Enviar Alerta</button>
+    </form>
+</div>
+
+<script>
+    function guardarEnBaseDeDatos() {
+        // Esta función enviará los datos a tu base de datos y disparará la notificación
+        alert("¡Pedido guardado en el CMS! Notificación enviada al cliente.");
+    }
+</script>
+</body>
+</html>
